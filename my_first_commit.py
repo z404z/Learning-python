@@ -122,7 +122,7 @@ def calc_debt(total_debt, month, min_payment):
         total_debt = total_debt - min_payment + (0.18 / 12.0 * total_debt)
         month -= 1
 
-    else:
+    else: 
         return total_debt
 
 print(calc_debt(total_debt, month, min_payment))

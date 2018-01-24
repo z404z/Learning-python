@@ -106,23 +106,54 @@
 #     return round(result, 4)                                # The function returns the sum, rounded to 4 decimal places
 ######################################################################################+
 total_debt = 5000
-month = 12
+
+month = 0
 min_payment = total_debt / 100 * 2
 annual_interest_rate = 0.18
 
+
 def calc_debt(total_debt, month, min_payment):
-    month = 12
+    month = 0
+    payed = 0
+    print('initial debt: ', total_debt)
+    print('minimal payment: ', min_payment)
+    print('________________________________')
+
+    if month == 0:
+        print('initial debt: ', total_debt)
+        total_debt -= min_payment
+        interest = (annual_interest_rate / 12.0 * total_debt)
+        print('month: ', month)
+        print('unpaid balance: ', total_debt)
+        print('minimal payment: ', min_payment)
+        print('interest: ', interest)
+        print('________________________________')
+        month += 1
+        payed += min_payment
+
+
+
+    while month < 12 and month != 12:
+        total_debt += interest
+        min_payment = round((total_debt / 100 * 2), 2)
+        print('month: ', month)
+        print('debt: ', total_debt)
+        print('minimal payment: ', min_payment)
+
+
+
+        total_debt = round((total_debt - min_payment), 2)
+        print('debt: ', total_debt)
+        interest = round((annual_interest_rate / 12.0 * total_debt), 2)
+        print('interest: ', interest)
+
+        print('________________________________')
+        month += 1
+        payed += min_payment
+
 
 
     if month == 12:
-        total_debt -= min_payment
-        month -= 1
-
-    while month < 12 and month != 0:
-        total_debt = total_debt - min_payment + (0.18 / 12.0 * total_debt)
-        month -= 1
-
-    else: 
-        return total_debt
+        return round((total_debt + interest), 2), payed
 
 print(calc_debt(total_debt, month, min_payment))

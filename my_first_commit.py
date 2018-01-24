@@ -142,7 +142,7 @@ def calc_debt(total_debt, month, min_payment):
 
 
 
-        total_debt = round((total_debt - min_payment), 2)x
+        total_debt = round((total_debt - min_payment), 2)
         print('debt: ', total_debt)
         interest = round((annual_interest_rate / 12.0 * total_debt), 2)
         print('interest: ', interest)

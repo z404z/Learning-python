@@ -150,7 +150,7 @@ def calc_debt(total_debt, month, min_payment):
         print('________________________________')
         month += 1
         payed += min_payment
-        print('loswl')
+        print('losl')
 
 
     if month == 12:

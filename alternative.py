@@ -5,16 +5,24 @@ air = 0.2 #annualPaymentRate
 def calc_debt(balance, mpr, air):
     month = 0
     if month == 0:
-        mp = balance * mpr #monthlyPayment = balance * monthlyPaymentRate
-        print('first monthly payment: ', mp,'|')
+        print('balance:', balance)
+        mp = round((balance * mpr), 2) #monthlyPayment = balance * monthlyPaymentRate
+        print('first payment: ', mp)
         balance = ((balance - mp))
-        print('month 0:', balance)
+        print('balance - first payment:', balance,)
+        balance += round((balance * (air / 12)),2)
+        print('balance in', month,'month', balance)
+        print('___________________________________')
         month += 1
 
     while month < 12 and month != 12:
+        print('Now it`s month: ', month)
+        mp = round((balance * mpr),2)
+        print('monthly payment: ', mp)
+        balance = (balance - mp)
 
-        mp = balance * mpr
-        balance = round((balance + ((balance - mp) * (air / 12))), 2)
+        print('balance - payment: ', balance)
+        print('___________________________________')
 
         month += 1
 

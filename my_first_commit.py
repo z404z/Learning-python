@@ -110,7 +110,7 @@ total_debt = 5000
 month = 0
 min_payment = total_debt / 100 * 2
 annual_interest_rate = 0.18
-'''it is a mess of an iterative function. i will try to make it recursive but for now i think it must be enough'''
+
 
 def calc_debt(total_debt, month, min_payment):
     month = 0
